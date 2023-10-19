@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: neo-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: neo
+  strategyType:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: neo
+    spec:
+      containers:
+      - name: neo
+        image: salientcrossing/neo:latest
+        resources:
+          limits:
+            cpu: "50m"
+            memory: "64Mi"
+          requests:
+            cpu: "25"
+            memory: "32Mi"
+        ports:
+        - containerPort: 8081

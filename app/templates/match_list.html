@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Match List</title>
+</head>
+<body>
+    <h1>Match List</h1>
+    
+    {% if matches %}
+        <ul>
+            {% for match in matches %}
+                <li>
+                    <h3>{{ match.username }}</h3>
+                    <p>First Name: {{ match.first_name }}</p>
+                    <p>Last Name: {{ match.last_name }}</p>
+                    <p>Date of Birth: {{ match.date_of_birth }}</p>
+                    <p>Height: {{ match.height }}</p>
+                    <p>City: {{ match.city }}</p>
+                    <p>Province/State: {{ match.province }}</p>
+                    <p>Country: {{ match.country }}</p>
+                    <p>Biography: {{ match.biography }}</p>
+                    <p>Hobbies: {{ match.hobbies }}</p>
+                    <p>Likes: {{ match.likes }}</p>
+                    <!-- You can display other relevant user information here -->
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No matches found.</p>
+    {% endif %}
+    
+    <a href="{{ url_for('profile', username=current_user.username) }}">Back to Profile</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>

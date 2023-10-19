@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+</head>
+<body>
+    <h1>Registration</h1>
+    <form method="POST" action="{{ url_for('register') }}">
+        <!-- Add other input fields based on your requirements -->
+        <label>Username:</label>
+        <input type="text" name="username" required><br>
+        
+        <label>Password:</label>
+        <input type="password" name="password" required><br>
+        
+        <label>Confirm Password:</label>
+        <input type="password" name="password_confirmation" required><br>
+        
+        <label>First Name:</label>
+        <input type="text" name="first_name" required><br>
+        
+        <label>Last Name:</label>
+        <input type="text" name="last_name" required><br>
+        
+        <label>Date of Birth (mm/dd/yyyy):</label>
+        <input type="date" name="date_of_birth" required><br>
+        
+        <label>Height (in meters):</label>
+        <input type="number" step="0.01" name="height" required><br>
+        
+        <label>Profile Photo:</label>
+        <input type="file" name="profile_photo" accept="image/*" required><br>
+        
+        <label>City:</label>
+        <input type="text" name="city" required><br>
+        
+        <label>Province:</label>
+        <input type="text" name="province" required><br>
+        
+        <label>Country:</label>
+        <input type="text" name="country" required><br>
+        
+        <label>Biography:</label><br>
+        <textarea name="biography" required></textarea><br>
+        
+        <label>Hobbies:</label><br>
+        <textarea name="hobbies" required></textarea><br>
+        
+        <label>Likes:</label><br>
+        <textarea name="likes" required></textarea><br>
+        
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
