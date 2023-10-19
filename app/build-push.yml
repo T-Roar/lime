@@ -16,6 +16,15 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
 
+    - name: Cache dependencies
+      uses: actions/cache@v2
+      with:
+        path: |
+          app/venv
+        key: ${{ runner.os }}-venv-${{ hashFiles('app/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-venv-
+
     - name: Login to Docker Hub
       run: echo ${{ secrets.DOCKER_HUB_PASSWORD }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
 
