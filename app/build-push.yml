@@ -20,8 +20,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: |
-          app/venv
-          app/requirements.txt  # Add this line to explicitly cache the requirements.txt file
+          app  # Adjust the path to match the location of requirements.txt
         key: ${{ runner.os }}-venv-${{ hashFiles('app/requirements.txt') }}
         restore-keys: |
           ${{ runner.os }}-venv-
